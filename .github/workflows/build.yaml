@@ -26,18 +26,21 @@ jobs:
       - uses: actions/checkout@v2
       - uses: docker/setup-qemu-action@v1
       - uses: docker/setup-buildx-action@v1
-      - run: |
-          echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-          chmod +x install_tooling.sh
-          sudo ./install_tooling.sh
+      - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      - run: chmod +x install_tooling.sh && sudo ./install_tooling.sh
       - run: |
           devspace build --var TAG=latest
           devspace build --var TAG=5.0
+          devspace build --var TAG=3.1
         working-directory: ./dotnet
   go:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
+      - uses: docker/setup-qemu-action@v1
+      - uses: docker/setup-buildx-action@v1
+      - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      - run: chmod +x install_tooling.sh && sudo ./install_tooling.sh
       - run: |
           devspace build --var TAG=latest
           devspace build --var TAG=1.16-alpine
@@ -47,6 +50,10 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
+      - uses: docker/setup-qemu-action@v1
+      - uses: docker/setup-buildx-action@v1
+      - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      - run: chmod +x install_tooling.sh && sudo ./install_tooling.sh
       - run: |
           devspace build --var TAG=latest
           devspace build --var TAG=7.0-jdk11
@@ -56,6 +63,10 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
+      - uses: docker/setup-qemu-action@v1
+      - uses: docker/setup-buildx-action@v1
+      - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      - run: chmod +x install_tooling.sh && sudo ./install_tooling.sh
       - run: |
           devspace build --var TAG=latest
           devspace build --var TAG=3-jdk-11
@@ -65,6 +76,10 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
+      - uses: docker/setup-qemu-action@v1
+      - uses: docker/setup-buildx-action@v1
+      - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      - run: chmod +x install_tooling.sh && sudo ./install_tooling.sh
       - run: |
           devspace build --var TAG=latest
           devspace build --var TAG=15-alpine
@@ -76,6 +91,10 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
+      - uses: docker/setup-qemu-action@v1
+      - uses: docker/setup-buildx-action@v1
+      - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      - run: chmod +x install_tooling.sh && sudo ./install_tooling.sh
       - run: |
           devspace build --var TAG=latest
           devspace build --var TAG=8.0-apache
@@ -89,6 +108,10 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
+      - uses: docker/setup-qemu-action@v1
+      - uses: docker/setup-buildx-action@v1
+      - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      - run: chmod +x install_tooling.sh && sudo ./install_tooling.sh
       - run: |
           devspace build --var TAG=latest
           devspace build --var TAG=3.9-alpine
@@ -99,6 +122,10 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
+      - uses: docker/setup-qemu-action@v1
+      - uses: docker/setup-buildx-action@v1
+      - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      - run: chmod +x install_tooling.sh && sudo ./install_tooling.sh
       - run: |
           devspace build --var TAG=latest
           devspace build --var TAG=3.0-alpine
@@ -109,6 +136,10 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
+      - uses: docker/setup-qemu-action@v1
+      - uses: docker/setup-buildx-action@v1
+      - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      - run: chmod +x install_tooling.sh && sudo ./install_tooling.sh
       - run: |
           devspace build --var TAG=latest
           devspace build --var TAG=15-alpine
