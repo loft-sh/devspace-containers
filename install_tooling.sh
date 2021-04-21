@@ -2,7 +2,7 @@
 
 ARCH_SHORT="arm64"
 ARCH=$(arch)
-if [ "$ARCH" == "x86_64" ]; then
+if [ "$ARCH" = "x86_64" ]; then
     ARCH_SHORT="amd64"
 fi
 
@@ -19,7 +19,7 @@ curl -s -L "https://github.com/loft-sh/devspace/releases/latest" | sed -nE 's!.*
 chmod +x devspace
 install devspace /usr/local/bin;
 
-if [ "$ARCH" == "x86_64" ]; then
+if [ "$ARCH" = "x86_64" ]; then
     devspace add plugin https://github.com/loft-sh/loft-devspace-plugin
 
     curl -s -L "https://github.com/loft-sh/loft/releases/latest" | sed -nE 's!.*"([^"]*loft-linux-'$ARCH_SHORT')".*!https://github.com\1!p' | xargs -n 1 curl -L -o loft

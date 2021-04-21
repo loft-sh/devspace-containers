@@ -19,7 +19,7 @@ jobs:
       - run: |
           echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
           chmod +x install_tooling.sh
-          ./install_tooling.sh
+          sudo ./install_tooling.sh
       - run: |
           devspace build --var TAG=latest
           devspace build --var TAG=5.0
