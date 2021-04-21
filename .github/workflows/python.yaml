@@ -1,0 +1,28 @@
+name: Build Python
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "python/**"
+      - ".github/workflows/python.yaml"
+
+env:
+  IMAGE_PREFIX: loftsh
+
+jobs:
+  python:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker/setup-qemu-action@v1
+      - uses: docker/setup-buildx-action@v1
+      - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      - run: chmod +x install_tooling.sh && sudo ./install_tooling.sh
+      - run: |
+          devspace build --var TAG=latest
+          devspace build --var TAG=3.9-alpine
+          devspace build --var TAG=3.8-alpine
+          devspace build --var TAG=3.7-alpine
+        working-directory: ./python

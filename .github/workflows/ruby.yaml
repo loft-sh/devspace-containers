@@ -1,0 +1,28 @@
+name: Build Ruby
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "ruby/**"
+      - ".github/workflows/ruby.yaml"
+
+env:
+  IMAGE_PREFIX: loftsh
+
+jobs:
+  ruby:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker/setup-qemu-action@v1
+      - uses: docker/setup-buildx-action@v1
+      - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      - run: chmod +x install_tooling.sh && sudo ./install_tooling.sh
+      - run: |
+          devspace build --var TAG=latest
+          devspace build --var TAG=3.0-alpine
+          devspace build --var TAG=2.6-alpine
+          devspace build --var TAG=2.5-alpine
+        working-directory: ./ruby

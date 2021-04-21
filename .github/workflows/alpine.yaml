@@ -1,0 +1,26 @@
+name: Build Alpine
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "alpine/**"
+      - ".github/workflows/alpine.yaml"
+
+env:
+  IMAGE_PREFIX: loftsh
+
+jobs:
+  alpine:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker/setup-qemu-action@v1
+      - uses: docker/setup-buildx-action@v1
+      - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      - run: chmod +x install_tooling.sh && sudo ./install_tooling.sh
+      - run: |
+          devspace build --var TAG=latest
+          devspace build --var TAG=3
+        working-directory: ./alpine

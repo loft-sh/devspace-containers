@@ -1,7 +1,9 @@
 #!/bin/sh
 
 apk update || apt update
-apk add --no-cache curl vim wget bash iputils bind-tools git || apt -y install curl vim wget bash inetutils-ping dnsutils git
+apk add --no-cache curl vim wget bash iputils bind-tools git nodejs npm || (apt -y install curl vim wget bash inetutils-ping dnsutils git && curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh && bash nodesource_setup.sh && apt install nodejs)
+
+npm install -g yarn
 
 ARCH_SHORT="arm64"
 ARCH=$(arch)
