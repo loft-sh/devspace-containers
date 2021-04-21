@@ -16,7 +16,10 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-      - run: ./install_tooling.sh
+      - run: |
+          echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+          chmod +x install_tooling.sh
+          ./install_tooling.sh
       - run: |
           devspace build --var TAG=latest
           devspace build --var TAG=5.0
