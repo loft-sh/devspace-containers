@@ -6,7 +6,7 @@ mvn -T 1C install
 COLOR_CYAN="\033[0;36m"
 COLOR_RESET="\033[0m"
 
-echo -e "${COLOR_CYAN}
+echo "${COLOR_CYAN}
    ____              ____
   |  _ \  _____   __/ ___| _ __   __ _  ___ ___
   | | | |/ _ \ \ / /\___ \| '_ \ / _\` |/ __/ _ \\
