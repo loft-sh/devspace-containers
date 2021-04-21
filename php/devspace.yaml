@@ -1,5 +1,4 @@
-version: v1beta10
-hooks:
+version: v1beta9
 images:
   app:
     image: ${IMAGE_PREFIX}/php
