@@ -27,3 +27,4 @@ jobs:
           devspace build --var TAG=12-alpine
           devspace build --var TAG=10-alpine
         working-directory: ./typescript
+

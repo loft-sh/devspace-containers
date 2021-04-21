@@ -25,3 +25,4 @@ jobs:
           devspace build --var TAG=3-jdk-11
           devspace build --var TAG=3-jdk-8
         working-directory: ./java-maven
+

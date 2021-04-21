@@ -24,3 +24,4 @@ jobs:
           devspace build --var TAG=latest
           devspace build --var TAG=3
         working-directory: ./alpine
+

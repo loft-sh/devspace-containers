@@ -25,3 +25,4 @@ jobs:
           devspace build --var TAG=7.0-jdk11
           devspace build --var TAG=7.0-jdk8
         working-directory: ./java-gradle
+
