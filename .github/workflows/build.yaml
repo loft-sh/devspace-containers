@@ -5,7 +5,15 @@ on:
     branches:
       - main
     paths:
-      - "**/Dockerfile"
+      - "dotnet/**"
+      - "go/**"
+      - "java-gradle/**"
+      - "java-maven/**"
+      - "javascript/**"
+      - "php/**"
+      - "python/**"
+      - "ruby/**"
+      - "typescript/**"
       - ".github/workflows/build.yaml"
 
 env:
