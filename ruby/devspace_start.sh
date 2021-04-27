@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ -f "Gemfile" ]; then
    echo "Installing Ruby Dependencies"
@@ -19,7 +19,7 @@ fi
 COLOR_CYAN="\033[0;36m"
 COLOR_RESET="\033[0m"
 
-echo "${COLOR_CYAN}
+echo -e "${COLOR_CYAN}
    ____              ____
   |  _ \  _____   __/ ___| _ __   __ _  ___ ___
   | | | |/ _ \ \ / /\___ \| '_ \ / _\` |/ __/ _ \\
