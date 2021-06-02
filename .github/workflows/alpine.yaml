@@ -7,6 +7,7 @@ on:
     paths:
       - "alpine/**"
       - ".github/workflows/alpine.yaml"
+      - "install_tooling.sh"
 
 env:
   IMAGE_PREFIX: loftsh

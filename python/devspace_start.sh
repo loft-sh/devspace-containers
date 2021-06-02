@@ -1,4 +1,5 @@
 #!/bin/bash
+set +e  # Continue on errors
 
 if [ -f "requirements.txt" ]; then
    echo "Installing Python Dependencies"

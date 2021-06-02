@@ -1,4 +1,5 @@
 #!/bin/bash
+set +e  # Continue on errors
 
 export NODE_ENV=development
 if [ -f "yarn.lock" ]; then

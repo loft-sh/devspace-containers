@@ -7,6 +7,7 @@ on:
     paths:
       - "python/**"
       - ".github/workflows/python.yaml"
+      - "install_tooling.sh"
 
 env:
   IMAGE_PREFIX: loftsh

@@ -1,4 +1,5 @@
 #!/bin/bash
+set +e  # Continue on errors
 
 COLOR_CYAN="\033[0;36m"
 COLOR_RESET="\033[0m"
