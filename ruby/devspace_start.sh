@@ -1,4 +1,5 @@
 #!/bin/sh
+set +e  # Continue on errors
 
 if [ -f "Gemfile" ]; then
    echo "Installing Ruby Dependencies"

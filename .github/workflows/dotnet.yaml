@@ -7,6 +7,7 @@ on:
     paths:
       - "dotnet/**"
       - ".github/workflows/dotnet.yaml"
+      - "install_tooling.sh"
 
 env:
   IMAGE_PREFIX: loftsh

@@ -1,4 +1,5 @@
 #!/bin/sh
+set +e  # Continue on errors
 
 echo "Installing maven dependencies"
 mvn -T 1C install

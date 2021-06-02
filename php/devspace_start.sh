@@ -1,4 +1,5 @@
 #!/bin/sh
+set +e  # Continue on errors
 
 export NODE_ENV=development
 

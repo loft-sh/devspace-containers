@@ -7,6 +7,7 @@ on:
     paths:
       - "java-maven/**"
       - ".github/workflows/java-maven.yaml"
+      - "install_tooling.sh"
 
 env:
   IMAGE_PREFIX: loftsh

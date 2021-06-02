@@ -7,6 +7,7 @@ on:
     paths:
       - "php/**"
       - ".github/workflows/php.yaml"
+      - "install_tooling.sh"
 
 env:
   IMAGE_PREFIX: loftsh

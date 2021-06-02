@@ -1,5 +1,7 @@
 #!/bin/sh
 
+DEVSPACE_VERSION="v5.14.0-beta.1"
+
 apk update || apt update
 apk add --no-cache curl vim wget bash iputils bind-tools git nodejs npm || (apt -y install curl vim wget bash inetutils-ping dnsutils git && curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh && bash nodesource_setup.sh && apt install nodejs)
 
@@ -20,7 +22,7 @@ chmod +x get_helm.sh
 ./get_helm.sh
 rm get_helm.sh
 
-curl -s -L "https://github.com/loft-sh/devspace/releases/latest" | sed -nE 's!.*"([^"]*devspace-linux-'$ARCH_SHORT')".*!https://github.com\1!p' | xargs -n 1 curl -L -o devspace
+curl -s -L "https://github.com/loft-sh/devspace/releases/$DEVSPACE_VERSION" | sed -nE 's!.*"([^"]*devspace-linux-'$ARCH_SHORT')".*!https://github.com\1!p' | xargs -n 1 curl -L -o devspace
 chmod +x devspace
 install devspace /usr/local/bin;
 
