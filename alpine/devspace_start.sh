@@ -16,7 +16,6 @@ Welcome to your development container!
 This is how you can work with it:
 - ${COLOR_CYAN}Files will be synchronized${COLOR_RESET} between your local machine and this container
 - Certain files may be excluded from sync (see devspace.yaml)
-
 "
 
 bash
