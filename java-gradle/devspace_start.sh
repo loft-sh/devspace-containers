@@ -21,6 +21,4 @@ This is how you can work with it:
 - Some ports will be forwarded, so you can access this container on your local machine via ${COLOR_CYAN}localhost${COLOR_RESET}:
 "
 
-devspace list ports
-
 bash
