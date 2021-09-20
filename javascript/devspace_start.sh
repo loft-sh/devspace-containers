@@ -29,7 +29,7 @@ This is how you can work with it:
 - Run \`${COLOR_CYAN}npm start${COLOR_RESET}\` to start the application
 - Run \`${COLOR_CYAN}npm run dev${COLOR_RESET}\` to start hot reloading
 - ${COLOR_CYAN}Files will be synchronized${COLOR_RESET} between your local machine and this container
-- Some ports will be forwarded, so you can access this container on your local machine via ${COLOR_CYAN}https://localhost:3000${COLOR_RESET}
+- Some ports will be forwarded, so you can access this container on your local machine via ${COLOR_CYAN}http://localhost:3000${COLOR_RESET}
 "
 
 bash
