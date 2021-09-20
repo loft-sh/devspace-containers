@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DEVSPACE_VERSION="v5.14.0-beta.1"
+DEVSPACE_VERSION="v5.16.0-beta.0"
 
 apk update || apt update
 apk add --no-cache curl vim wget bash iputils bind-tools git nodejs npm || (apt -y install curl vim wget bash inetutils-ping dnsutils git && curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh && bash nodesource_setup.sh && apt install nodejs)
