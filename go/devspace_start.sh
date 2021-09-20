@@ -17,7 +17,7 @@ Welcome to your development container!
 This is how you can work with it:
 - Run \`${COLOR_CYAN}go run main.go${COLOR_RESET}\` to start the application
 - ${COLOR_CYAN}Files will be synchronized${COLOR_RESET} between your local machine and this container
-- Some ports will be forwarded, so you can access this container on your local machine via ${COLOR_CYAN}http://localhost${COLOR_RESET}:8080
+- Some ports will be forwarded, so you can access this container on your local machine via ${COLOR_CYAN}http://localhost:8080${COLOR_RESET}
 "
 
 bash
