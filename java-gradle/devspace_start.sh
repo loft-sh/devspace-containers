@@ -18,7 +18,7 @@ This is how you can work with it:
 - Run \`${COLOR_CYAN}gradle build${COLOR_RESET}\` to build the application
 - Run \`${COLOR_CYAN}java -jar build/target/[file].jar${COLOR_RESET}\` to run the application
 - ${COLOR_CYAN}Files will be synchronized${COLOR_RESET} between your local machine and this container
-- Some ports will be forwarded, so you can access this container on your local machine via ${COLOR_CYAN}localhost${COLOR_RESET}:
+- Some ports will be forwarded, so you can access this container on your local machine via ${COLOR_CYAN}localhost${COLOR_RESET}:3000
 "
 
 bash
