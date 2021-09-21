@@ -22,12 +22,10 @@ jobs:
       - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
       - run: chmod +x install_tooling.sh && sudo ./install_tooling.sh
       - run: |
-          devspace build --var TAG=latest
-          devspace build --var TAG=8.0-apache
-          devspace build --var TAG=8.0-fpm
-          devspace build --var TAG=7.4-apache
-          devspace build --var TAG=7.4-fpm
-          devspace build --var TAG=7.3-apache
-          devspace build --var TAG=7.3-fpm
+          devspace build --var TAG=8.0-apache --var TARGET_TAG=latest
+          devspace build --var TAG=8.0-apache --var TARGET_TAG=8.0-apache
+          devspace build --var TAG=8.0-fpm --var TARGET_TAG=8.0-fpm
+          devspace build --var TAG=7.4-apache --var TARGET_TAG=7.4-apache
+          devspace build --var TAG=7.4-fpm --var TARGET_TAG=7.4-fpm
         working-directory: ./php
 
