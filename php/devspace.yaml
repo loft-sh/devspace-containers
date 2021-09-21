@@ -2,7 +2,7 @@ version: v1beta9
 images:
   app:
     image: ${IMAGE_PREFIX}/php
-    tags: ["${TAG}"]
+    tags: ["${TARGET_TAG}"]
     context: ../
     appendDockerfileInstructions: ["ADD install_tooling.sh .", "RUN chmod +x install_tooling.sh && ./install_tooling.sh && rm install_tooling.sh"]
     build:
