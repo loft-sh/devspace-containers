@@ -1,18 +1,18 @@
 ARG TAG=1.16-alpine
 FROM golang:${TAG}
 
-# Empty ARG TAG to copy the actual ARG TAG that is defined before FROM (see https://docs.docker.com/engine/reference/builder/#understand-how-arg-and-from-interact)
-ARG TAG
-
 # Update package indexes
-RUN apk update || apt-get update
+RUN apt-get update || true
 
 # Install build packages
-RUN apk add --no-cache build-base git || apt-get -y install gcc git
+RUN apk add --no-cache build-base git || apt-get -y install gcc git; rm -rf /var/lib/apt/lists/*
 
 # Install Delve (https://github.com/go-delve/delve)
+# Use "go get" for Golang version 1.15>=, use "go install" for 1.16<= (see https://go.dev/doc/go-get-install-deprecation)
 RUN set -eux; \
-	if [ ${TAG} = 1.15-alpine ]; then \
+    # Kudos to https://stackoverflow.com/questions/59820549/how-to-extract-only-version-from-go-version-command-using-sed-or-other-bash-co
+    GOVERSION=`go version | { read _ _ v _; echo ${v#go}; }`; \
+	if [[ $GOVERSION == 1.15* ]]; then \
 		go get github.com/go-delve/delve/cmd/dlv; \
 	else \
 		go install github.com/go-delve/delve/cmd/dlv@latest; \
