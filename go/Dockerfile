@@ -1,11 +1,11 @@
-ARG  TAG=1.16-alpine
+ARG TAG=1.16-alpine
 FROM golang:${TAG}
 
-# Install base build packages
-RUN apk --no-cache add build-base
+# Install build packages
+RUN apk add --no-cache build-base git || apt-get update && apt-get -y install gcc git; rm -rf /var/lib/apt/lists/*
 
-# Install delve
-RUN go install github.com/go-delve/delve/cmd/dlv@latest
+# Install Delve (https://github.com/go-delve/delve)
+RUN go install github.com/go-delve/delve/cmd/dlv@latest;
 
 # Create project directory (workdir)
 WORKDIR /app

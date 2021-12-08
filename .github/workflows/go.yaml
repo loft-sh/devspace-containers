@@ -23,7 +23,7 @@ jobs:
       - run: chmod +x install_tooling.sh && sudo ./install_tooling.sh
       - run: |
           devspace build --var TAG=latest
+          devspace build --var TAG=1.17-alpine
           devspace build --var TAG=1.16-alpine
-          devspace build --var TAG=1.15-alpine
         working-directory: ./go
 
