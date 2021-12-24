@@ -4,7 +4,7 @@ images:
     image: ${IMAGE_PREFIX}/go
     tags: ["${TAG}"]
     context: ../
-    appendDockerfileInstructions: ["ADD install_tooling.sh .", "RUN chmod +x install_tooling.sh && ./install_tooling.sh && rm install_tooling.sh"]
+    appendDockerfileInstructions: ["ADD install_tooling.sh .", "RUN chmod +x install_tooling.sh && ./install_tooling.sh && rm install_tooling.sh","RUN mkdir /.devspace","ADD ./devspace-restart-helper /.devspace/","RUN chmod +x /.devspace/devspace-restart-helper"]
     build:
       buildKit:
         skipPush: false
