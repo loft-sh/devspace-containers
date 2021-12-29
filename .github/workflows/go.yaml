@@ -27,4 +27,3 @@ jobs:
           devspace build --var TAG=1.17-alpine
           devspace build --var TAG=1.16-alpine
         working-directory: ./go
-
