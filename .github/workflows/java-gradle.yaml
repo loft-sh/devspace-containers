@@ -14,7 +14,7 @@ env:
 
 jobs:
   java-gradle:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: docker/setup-qemu-action@v1
@@ -23,7 +23,9 @@ jobs:
       - run: chmod +x install_tooling.sh && sudo ./install_tooling.sh
       - run: |
           devspace build --var TAG=latest
-          devspace build --var TAG=7.0-jdk11
-          devspace build --var TAG=7.0-jdk8
+          devspace build --var TAG=7-jdk11-alpine
+          devspace build --var TAG=7-jdk17-alpine
+          devspace build --var TAG=6-jdk11-alpine
+          devspace build --var TAG=6-jdk17-alpine
         working-directory: ./java-gradle
 
