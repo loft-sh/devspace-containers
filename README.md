@@ -1,5 +1,7 @@
 # devtools-containers
 
+## .NET
+[![Build .NET](https://github.com/leventogut/devtools-containers/actions/workflows/dotnet.yaml/badge.svg)](https://github.com/leventogut/devtools-containers/actions/workflows/dotnet.yaml)
 ## TODOs
 
 - TODO: devspace.yaml update to install devspace-restart-helper script & bump devspace config version.
