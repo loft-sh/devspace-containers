@@ -11,6 +11,7 @@ on:
 
 env:
   IMAGE_PREFIX: ${{ secrets.IMAGE_PREFIX }}
+  LANGUAGE: "go"
 
 jobs:
   go:
@@ -32,34 +33,15 @@ jobs:
         uses: snyk/actions/docker@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+          TAG: "latest"
         with:
-          image: ${{ secrets.IMAGE_PREFIX }}/go:latest
-          args: --file=go/Dockerfile
+          image: ${{ secrets.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ env.TAG }}
+          args: --file=go/Dockerfile --severity-threshold=high --exclude-base-image-vulns
       - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v1
-        with:
-          sarif_file: snyk.sarif
-      - name: Synk Docker scan for TAG=1.17-alpine
-        continue-on-error: true
-        uses: snyk/actions/docker@master
         env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          image: ${{ secrets.IMAGE_PREFIX }}/go:1.17-alpine
-          args: --file=go/Dockerfile
-      - name: Upload result to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v1
+          TAG: "latest"
         with:
           sarif_file: snyk.sarif
-      - name: Synk Docker scan for TAG=1.16-alpine
-        continue-on-error: true
-        uses: snyk/actions/docker@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          image: ${{ secrets.IMAGE_PREFIX }}/go:1.16-alpine
-          args: --file=go/Dockerfile
-      - name: Upload result to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v1
-        with:
-          sarif_file: snyk.sarif
+          category: "${{ secrets.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ env.TAG }}"
+
