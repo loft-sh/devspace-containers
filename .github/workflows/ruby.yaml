@@ -10,7 +10,7 @@ on:
       - "install_tooling.sh"
 
 env:
-  IMAGE_PREFIX: loft${{ secrets.IMAGE_PREFIX }}sh
+  IMAGE_PREFIX: ${{ secrets.IMAGE_PREFIX }}
 
 jobs:
   ruby:
