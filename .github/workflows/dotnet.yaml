@@ -24,8 +24,8 @@ jobs:
         uses: loft-sh/setup-devspace@main
       - run: |
           devspace build --var TAG=latest
-          devspace build --var TAG=6.0-alpine
-          devspace build --var TAG=5.0-alpine
-          devspace build --var TAG=3.1-alpine
+          devspace build --var TAG=6.0
+          devspace build --var TAG=5.0
+          devspace build --var TAG=3.1
         working-directory: ./dotnet
 
