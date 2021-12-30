@@ -35,6 +35,10 @@ jobs:
         with:
           image: ${{ secrets.IMAGE_PREFIX }}/go:latest
           args: --file=go/Dockerfile
+      - name: Upload result to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: snyk.sarif
       - name: Synk Docker scan for TAG=1.17-alpine
         continue-on-error: true
         uses: snyk/actions/docker@master
@@ -43,6 +47,10 @@ jobs:
         with:
           image: ${{ secrets.IMAGE_PREFIX }}/go:1.17-alpine
           args: --file=go/Dockerfile
+      - name: Upload result to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: snyk.sarif
       - name: Synk Docker scan for TAG=1.16-alpine
         continue-on-error: true
         uses: snyk/actions/docker@master
