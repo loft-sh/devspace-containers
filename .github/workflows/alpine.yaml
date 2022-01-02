@@ -11,6 +11,7 @@ on:
 
 env:
   IMAGE_PREFIX: ${{ secrets.IMAGE_PREFIX }}
+  LANGUAGE: "alpine"
 
 jobs:
   alpine:
