@@ -12,67 +12,31 @@ on:
 env:
   IMAGE_PREFIX: ${{ secrets.IMAGE_PREFIX }}
   LANGUAGE: "go"
+  SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
 jobs:
   go:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        tag: [latest, 1.17-alpine, 1.16-alpine]
     steps:
       - uses: actions/checkout@v2
       - uses: docker/setup-qemu-action@v1
       - uses: docker/setup-buildx-action@v1
       - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-      - name: Install DevSpace
-        uses: loft-sh/setup-devspace@main
-      - run: |
-          devspace build --var TAG=latest
-          devspace build --var TAG=1.17-alpine
-          devspace build --var TAG=1.16-alpine
+      - uses: loft-sh/setup-devspace@main
+      - run: devspace build --var TAG=${{ matrix.tag }}
         working-directory: ./go
-      - name: Synk Docker scan for TAG=latest
+      - name: Synk Docker scan for TAG=${{ matrix.tag }}
         continue-on-error: true
         uses: snyk/actions/docker@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-          TAG: "latest"
         with:
-          image: ${{ secrets.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ env.TAG }}
+          image: ${{ env.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ matrix.tag }}
           args: --file=go/Dockerfile --severity-threshold=high --exclude-base-image-vulns
       - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v1
-        env:
-          TAG: "latest"
         with:
           sarif_file: snyk.sarif
-          category: "${{ secrets.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ env.TAG }}"
-      - name: Synk Docker scan for TAG=1.17-alpine
-        continue-on-error: true
-        uses: snyk/actions/docker@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-          TAG: "1.17-alpine"
-        with:
-          image: ${{ secrets.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ env.TAG }}
-          args: --file=go/Dockerfile --severity-threshold=high --exclude-base-image-vulns
-      - name: Upload result to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v1
-        env:
-          TAG: "1.17-alpine"
-        with:
-          sarif_file: snyk.sarif
-          category: "${{ secrets.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ env.TAG }}"
-      - name: Synk Docker scan for TAG=1.16-alpine
-        continue-on-error: true
-        uses: snyk/actions/docker@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-          TAG: "1.16-alpine"
-        with:
-          image: ${{ secrets.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ env.TAG }}
-          args: --file=go/Dockerfile --severity-threshold=high --exclude-base-image-vulns
-      - name: Upload result to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v1
-        env:
-          TAG: "1.16-alpine"
-        with:
-          sarif_file: snyk.sarif
-          category: "${{ secrets.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ env.TAG }}"
+          category: "${{ env.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ matrix.tag }}"
