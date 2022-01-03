@@ -14,14 +14,14 @@ on:
         description: "loftsh in loftsh/language:TAG"
         required: true
 
-defaults:
-  run:
-    working-directory: ${{ env.LANGUAGE }}
-
 env:
   IMAGE_PREFIX: ${{ secrets.IMAGE_PREFIX }}
   LANGUAGE: "go"
   SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+defaults:
+  run:
+    working-directory: ${{ env.LANGUAGE }}
 
 jobs:
   go:
