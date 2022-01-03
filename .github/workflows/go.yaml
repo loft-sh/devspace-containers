@@ -28,7 +28,7 @@ jobs:
       - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
       - uses: loft-sh/setup-devspace@main
       - run: devspace build --var TAG=${{ matrix.tag }}
-        working-directory: ./go
+        working-directory: ./${{ env.LANGUAGE }}
       - name: Synk Docker scan for TAG=${{ matrix.tag }}
         continue-on-error: true
         uses: snyk/actions/docker@master
