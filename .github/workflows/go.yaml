@@ -11,7 +11,7 @@ on:
   workflow_call:
     secrets:
       IMAGE_PREFIX:
-        description: "loftsh in loftsh/language:TAG"
+        description: "registry.com/loftsh in registry.com/loftsh/language:TAG"
         required: true
 
 env:
@@ -21,7 +21,7 @@ env:
 
 defaults:
   run:
-    working-directory: ${{ env.LANGUAGE }}
+    working-directory: go
 
 jobs:
   go:
