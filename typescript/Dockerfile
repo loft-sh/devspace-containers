@@ -1,4 +1,4 @@
-ARG  TAG=15-alpine
+ARG  TAG=17-alpine
 FROM node:${TAG}
 
 # Set working directory
