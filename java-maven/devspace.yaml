@@ -8,7 +8,7 @@ images:
     build:
       buildKit:
         skipPush: false
-        args: ["--platform", "linux/amd64"]
+        args: ["--platform", "linux/amd64,linux/arm64"]
         options:
           buildArgs:
             TAG: ${TAG}
