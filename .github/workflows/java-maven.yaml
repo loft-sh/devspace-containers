@@ -38,10 +38,8 @@ jobs:
             target_tag: 3-openjdk-11-slim
           - tag: 3-openjdk-8-slim
             target_tag: 3-openjdk-8-slim
-          - tag: 3-ibmjava-alpine
-            target_tag: 3-ibmjava-alpine
-          - tag: 3-ibmjava-8-alpine
-            target_tag: 3-ibmjava-8-alpine
+          - tag: 3-ibmjava-8
+            target_tag: 3-ibmjava-8
 
     steps:
       - uses: actions/checkout@v2
