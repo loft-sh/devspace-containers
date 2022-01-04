@@ -8,25 +8,60 @@ on:
       - "javascript/**"
       - ".github/workflows/javascript.yaml"
       - "install_tooling.sh"
+  workflow_call:
+    secrets:
+      IMAGE_PREFIX:
+        description: "registry.com/loftsh in registry.com/loftsh/language:TAG"
+        required: true
 
 env:
   IMAGE_PREFIX: ${{ secrets.IMAGE_PREFIX }}
+  LANGUAGE: "javascript"
+  SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+defaults:
+  run:
+    working-directory: javascript
 
 jobs:
   javascript:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - tag: 17-alpine
+            target_tag: latest
+          - tag: 17-alpine
+            target_tag: 17-alpine
+          - tag: lts-alpine
+            target_tag: lts-alpine
+          - tag: lts-alpine
+            target_tag: lts
+          - tag: 16-alpine
+            target_tag: 16-alpine
+          - tag: 14-alpine
+            target_tag: 14-alpine
+          - tag: 12-alpine
+            target_tag: 12-alpine
     steps:
       - uses: actions/checkout@v2
       - uses: docker/setup-qemu-action@v1
       - uses: docker/setup-buildx-action@v1
       - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-      - name: Install DevSpace
-        uses: loft-sh/setup-devspace@main
-      - run: |
-          devspace build --var TAG=latest
-          devspace build --var TAG=15-alpine
-          devspace build --var TAG=14-alpine
-          devspace build --var TAG=12-alpine
-          devspace build --var TAG=10-alpine
-        working-directory: ./javascript
+      - uses: loft-sh/setup-devspace@main
+      - run: devspace build --var TAG=${{ matrix.tag }} --var TARGET_TAG=${{ matrix.target_tag }}
+      - name: Synk Docker scan for TAG=${{ matrix.target_tag }}
+        continue-on-error: true
+        uses: snyk/actions/docker@master
+        with:
+          image: ${{ env.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ matrix.target_tag }}
+          args: --file=go/Dockerfile --severity-threshold=high --exclude-base-image-vulns
+      - name: Upload result to GitHub Code Scanning
+        continue-on-error: true
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: snyk.sarif
+          category: "${{ env.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ matrix.target_tag }}"
+
 
