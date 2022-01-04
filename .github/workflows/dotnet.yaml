@@ -8,88 +8,56 @@ on:
       - "dotnet/**"
       - ".github/workflows/dotnet.yaml"
       - "install_tooling.sh"
+  workflow_call:
+    secrets:
+      IMAGE_PREFIX:
+        description: "registry.com/loftsh in registry.com/loftsh/language:TAG"
+        required: true
 
 env:
   IMAGE_PREFIX: ${{ secrets.IMAGE_PREFIX }}
   LANGUAGE: "dotnet"
+  SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+defaults:
+  run:
+    working-directory: dotnet
 
 jobs:
   dotnet:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - tag: 6.0-alpine
+            target_tag: latest
+          - tag: 6.0-alpine
+            target_tag: 6.0
+          - tag: 6.0-alpine
+            target_tag: 6.0-alpine
+          - tag: 5.0-bullseye-slim
+            target_tag: 5.0
+          - tag: 5.0-bullseye-slim
+            target_tag: 5.0-bullseye-slim
+          - tag: 3.1
+            target_tag: 3.1
     steps:
       - uses: actions/checkout@v2
       - uses: docker/setup-qemu-action@v1
       - uses: docker/setup-buildx-action@v1
       - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-      - name: Install DevSpace
-        uses: loft-sh/setup-devspace@main
-      - run: |
-          devspace build --var TAG=latest
-          devspace build --var TAG=6.0
-          devspace build --var TAG=5.0
-          devspace build --var TAG=3.1
-        working-directory: ./dotnet
-      - name: Synk Docker scan for TAG=latest
+      - uses: loft-sh/setup-devspace@main
+      - run: devspace build --var TAG=${{ matrix.tag }} --var TARGET_TAG=${{ matrix.target_tag }}
+      - name: Synk Docker scan for TAG=${{ matrix.target_tag }}
         continue-on-error: true
         uses: snyk/actions/docker@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-          TAG: "latest"
         with:
-          image: ${{ secrets.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ env.TAG }}
+          image: ${{ env.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ matrix.target_tag }}
           args: --file=go/Dockerfile --severity-threshold=high --exclude-base-image-vulns
       - name: Upload result to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v1
-        env:
-          TAG: "latest"
-        with:
-          sarif_file: snyk.sarif
-          category: "${{ secrets.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ env.TAG }}"
-      - name: Synk Docker scan for TAG=6.0
         continue-on-error: true
-        uses: snyk/actions/docker@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-          TAG: "6.0"
-        with:
-          image: ${{ secrets.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ env.TAG }}
-          args: --file=go/Dockerfile --severity-threshold=high --exclude-base-image-vulns
-      - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v1
-        env:
-          TAG: "6.0"
         with:
           sarif_file: snyk.sarif
-          category: "${{ secrets.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ env.TAG }}"
-      - name: Synk Docker scan for TAG=5.0
-        continue-on-error: true
-        uses: snyk/actions/docker@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-          TAG: "5.0"
-        with:
-          image: ${{ secrets.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ env.TAG }}
-          args: --file=go/Dockerfile --severity-threshold=high --exclude-base-image-vulns
-      - name: Upload result to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v1
-        env:
-          TAG: "5.0"
-        with:
-          sarif_file: snyk.sarif
-          category: "${{ secrets.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ env.TAG }}"
-      - name: Synk Docker scan for TAG=3.1
-        continue-on-error: true
-        uses: snyk/actions/docker@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-          TAG: "3.1"
-        with:
-          image: ${{ secrets.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ env.TAG }}
-          args: --file=go/Dockerfile --severity-threshold=high --exclude-base-image-vulns
-      - name: Upload result to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v1
-        env:
-          TAG: "3.1"
-        with:
-          sarif_file: snyk.sarif
-          category: "${{ secrets.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ env.TAG }}"
+          category: "${{ env.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ matrix.target_tag }}"
