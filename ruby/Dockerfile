@@ -1,4 +1,4 @@
-ARG  TAG=2.7-alpine
+ARG  TAG=3-alpine
 FROM ruby:${TAG}
 
 # Create project directory (workdir)
