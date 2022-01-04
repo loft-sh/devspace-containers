@@ -1,4 +1,4 @@
-ARG  TAG=7.0-jdk11
+ARG  TAG=7-jdk17-alpine
 FROM gradle:${TAG}
 
 # Create project directory (workdir)
