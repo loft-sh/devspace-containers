@@ -15,7 +15,7 @@ You can pull images from the [loftsh repo](https://hub.docker.com/r/loftsh)
 
 ## Additional packages installed
 
-### For all languages
+### For all distributions
 
 - curl
 - vim
@@ -35,6 +35,14 @@ You can pull images from the [loftsh repo](https://hub.docker.com/r/loftsh)
 - inetutils-ping
 - dnsutils
 
+## Alpine
+
+- edge
+- latest
+- 3.14
+- 3.13
+- 3.12
+
 ## Go
 
 ### Tags
@@ -44,7 +52,7 @@ You can pull images from the [loftsh repo](https://hub.docker.com/r/loftsh)
 - 1.17-alpine
 - 1.16-alpine
 
-### Additional packages installed
+### Additional software/packages installed
 
 - [Delve (@latest)](https://github.com/go-delve/delve)
 
@@ -58,3 +66,82 @@ You can pull images from the [loftsh repo](https://hub.docker.com/r/loftsh)
 - 5.0-bullseye-slim
 - 5.0 (based on mcr.microsoft.com/dotnet/sdk:5.0-bullseye-slim)
 - 3.1
+
+## Gradle
+
+### Tags
+
+- latest (based on 7.3-jdk17-alpine)
+- 7.3-jdk17-alpine
+- 7.3-jdk11-alpine
+- 7-jdk17-alpine
+- 7-jdk11-alpine
+- 6-jdk17-alpine
+- 6-jdk11-alpine
+
+## Maven
+
+### Tags
+
+- latest (based on 3-openjdk-17-slim)
+- 3-openjdk-17-slim
+- 3-openjdk-11-slim
+- 3-openjdk-8-slim
+- 3-ibmjava-alpine
+- 3-ibmjava-8-alpine
+
+## JavaScript
+
+### Tags
+
+- latest (based on 17-alpine)
+- 17-alpine
+- lts-alpine
+- lts (based on lts-alpine)
+- 14-alpine
+- 12-alpine
+
+
+## PHP
+
+### Tags
+
+- latest (based on 8-apache-bullseye)
+- latest-apache (based on 8-apache-bullseye)
+- apache (based on 8-apache-bullseye)
+- 8.1-apache-bullseye
+- 8.0-apache-bullseye
+- 7-apache-bullseye
+- 5-apache
+- latest-fpm (based on 8-fpm)
+- fpm (based on 8-fpm)
+- 8-fpm
+- 7-fpm
+
+## Ruby
+
+### Tags
+
+- latest (based on 3-alpine)
+- 3-alpine
+- 3.1-alpine
+- 3.0-alpine
+- 2-alpine
+- 2.7-alpine
+- 2.6-alpine
+
+## TypeScript
+
+### Tags
+
+- latest (based on 17-alpine)
+- 17-alpine
+- lts-alpine
+- lts (based on lts-alpine)
+- 14-alpine
+- 12-alpine
+
+### Additional software/packages installed
+
+- typescript
+- tsc-watch
