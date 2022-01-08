@@ -1,4 +1,4 @@
-# devtools-containers
+# Dev-Optimized Container Images For Cloud-Native Development
 
 [![Build Alpine](https://github.com/loft-sh/devtools-containers/actions/workflows/alpine.yaml/badge.svg)](https://github.com/loft-sh/devtools-containers/actions/workflows/alpine.yaml)
 [![Build .NET](https://github.com/loft-sh/devtools-containers/actions/workflows/dotnet.yaml/badge.svg)](https://github.com/loft-sh/devtools-containers/actions/workflows/dotnet.yaml)
@@ -11,7 +11,7 @@
 [![Build Ruby](https://github.com/loft-sh/devtools-containers/actions/workflows/ruby.yaml/badge.svg)](https://github.com/loft-sh/devtools-containers/actions/workflows/ruby.yaml)
 [![Build TypeScript](https://github.com/loft-sh/devtools-containers/actions/workflows/typescript.yaml/badge.svg)](https://github.com/loft-sh/devtools-containers/actions/workflows/typescript.yaml)
 
-You can pull images from the [loftsh repo](https://hub.docker.com/r/loftsh)
+You can pull images from the [Loft Labs repo](https://hub.docker.com/r/loftsh).
 
 ## Additional packages installed
 
@@ -25,121 +25,161 @@ You can pull images from the [loftsh repo](https://hub.docker.com/r/loftsh)
 - openssl
 - nodejs-lts/nodejs (Current LTS is v16.x.y)
 
-### For Alpine
+### For Alpine distribution
 
 - iputils
 - bind-tools
 
-### For Debian/Ubuntu
+### For Debian/Ubuntu distribution
 
 - inetutils-ping
 - dnsutils
 
-## Alpine
+## Architecture
 
-- edge
-- latest
-- 3.14
-- 3.13
-- 3.12
+Following architectures are supported on all images unless specified otherwise. The architecture support depends on the base images.
 
-## Go
+- linux/amd64
+- linux/arm64
+
+## [Alpine Images](https://hub.docker.com/r/loftsh/alpine/tags)
+
+Base repo: [Alpine](https://hub.docker.com/_/alpine).
 
 ### Tags
 
-- latest (based on 1.17-alpine)
-- 1.18-rc-alpine
-- 1.17-alpine
-- 1.16-alpine
+- [latest](https://hub.docker.com/r/loftsh/alpine/tags?name=latest) (Base image: [alpine:latest](https://hub.docker.com/_/alpine?tab=tags&name=latest))
+- [3.14](https://hub.docker.com/r/loftsh/alpine/tags?name=3.14) (Base image: [alpine:3.14](https://hub.docker.com/_/alpine?tab=tags&name=3.14))
+- [3.14](https://hub.docker.com/r/loftsh/alpine/tags?name=3.13) (Base image: [alpine:3.13](https://hub.docker.com/_/alpine?tab=tags&name=3.13))
+- [3.14](https://hub.docker.com/r/loftsh/alpine/tags?name=3.12) (Base image: [alpine:3.12](https://hub.docker.com/_/alpine?tab=tags&name=3.12))
+
+### Additional software/packages installed
+
+- none
+## [Go](https://hub.docker.com/r/loftsh/go/tags)
+
+Base repo: [Golang](https://hub.docker.com/_/golang).
+### Tags
+
+- [latest](https://hub.docker.com/r/loftsh/go/tags?name=latest) (Base image: [golang:latest](https://hub.docker.com/_/golang?tab=tags&name=latest))
+- [1.17-alpine](https://hub.docker.com/r/loftsh/go/tags?name=1.17-alpine) (Base image: [golang:1.17-alpine](https://hub.docker.com/_/golang?tab=tags&name=1.17-alpine))
+- [1.16-alpine](https://hub.docker.com/r/loftsh/go/tags?name=1.16-alpine) (Base image: [golang:1.16-alpine](https://hub.docker.com/_/golang?tab=tags&name=1.16-alpine))
 
 ### Additional software/packages installed
 
 - [Delve (@latest)](https://github.com/go-delve/delve)
 
-## .NET
+## [.NET](https://hub.docker.com/r/loftsh/dotnet/tags)
+
+Base repo: [dotnet](https://hub.docker.com/_/microsoft-dotnet-sdk).
 
 ### Tags
 
-- latest (based on mcr.microsoft.com/dotnet/sdk:6.0-alpine)
-- 6.0 (based on mcr.microsoft.com/dotnet/sdk:6.0-alpine)
-- 6.0-alpine
-- 5.0-bullseye-slim
-- 5.0 (based on mcr.microsoft.com/dotnet/sdk:5.0-bullseye-slim)
-- 3.1
+- [latest](https://hub.docker.com/r/loftsh/dotnet/tags?name=latest) (Base image: [mcr.microsoft.com/dotnet/sdk:6.0-alpine](https://hub.docker.com/_/microsoft-dotnet-sdk))
+- [6.0-alpine](https://hub.docker.com/r/loftsh/dotnet/tags?name=6.0-alpine) (Base image: [mcr.microsoft.com/dotnet/sdk:6.0-alpine](https://hub.docker.com/_/microsoft-dotnet-sdk))
+- [5.0-bullseye-slim](https://hub.docker.com/r/loftsh/dotnet/tags?name=5.0-bullseye-slim) (Base image: [mcr.microsoft.com/dotnet/sdk:5.0-bullseye-slim](https://hub.docker.com/_/microsoft-dotnet-sdk))
 
-## Gradle
+### Additional software/packages installed
 
-### Tags
+- none
 
-- latest (based on 7.3-jdk17-alpine)
-- 7.3-jdk17-alpine
-- 7.3-jdk11-alpine
-- 7-jdk17-alpine
-- 7-jdk11-alpine
-- 6-jdk17-alpine
-- 6-jdk11-alpine
+## [Gradle](https://hub.docker.com/r/loftsh/java-gradle/tags)
 
-## Maven
+Base repo: [gradle](https://hub.docker.com/_/gradle).
 
 ### Tags
 
-- latest (based on 3-openjdk-17-slim)
-- 3-openjdk-17-slim
-- 3-openjdk-11-slim
-- 3-openjdk-8-slim
-- 3-ibmjava-alpine
-- 3-ibmjava-8-alpine
+- [latest](https://hub.docker.com/r/loftsh/java-gradle/tags?name=latest) (Base image: [gradle:latest](https://hub.docker.com/_/gradle?tab=tags&name=latest))
+- [7-jdk17](https://hub.docker.com/r/loftsh/java-gradle/tags?name=7-jdk17) (Base image: [gradle:7-jdk17](https://hub.docker.com/_/gradle?tab=tags&name=7-jdk17))
+- [7-jdk11](https://hub.docker.com/r/loftsh/java-gradle/tags?name=7-jdk11) (Base image: [gradle:7-jdk11](https://hub.docker.com/_/gradle?tab=tags&name=7-jdk11))
+- [6-jdk17](https://hub.docker.com/r/loftsh/java-gradle/tags?name=6-jdk17) (Base image: [gradle:6-jdk17](https://hub.docker.com/_/gradle?tab=tags&name=6-jdk17))
+- [6-jdk11](https://hub.docker.com/r/loftsh/java-gradle/tags?name=6-jdk11) (Base image: [gradle:6-jdk11](https://hub.docker.com/_/gradle?tab=tags&name=6-jdk11))
 
-## JavaScript
+### Additional software/packages installed
 
-### Tags
+- none
 
-- latest (based on 17-alpine)
-- 17-alpine
-- lts-alpine
-- lts (based on lts-alpine)
-- 14-alpine
-- 12-alpine
+## [Maven](https://hub.docker.com/r/loftsh/java-maven/tags)
 
-
-## PHP
+Base repo: [maven](https://hub.docker.com/_/maven).
 
 ### Tags
 
-- latest (based on 8-apache-bullseye)
-- latest-apache (based on 8-apache-bullseye)
-- apache (based on 8-apache-bullseye)
-- 8.1-apache-bullseye
-- 8.0-apache-bullseye
-- 7-apache-bullseye
-- 5-apache
-- latest-fpm (based on 8-fpm)
-- fpm (based on 8-fpm)
-- 8-fpm
-- 7-fpm
+- [latest](https://hub.docker.com/r/loftsh/java-maven/tags?name=latest) (Base image: [maven:3-openjdk-17-slim](https://hub.docker.com/_/maven?tab=tags&name=3-openjdk-17-slim))
+- [3-openjdk-17-slim](https://hub.docker.com/r/loftsh/java-maven/tags?name=3-openjdk-17-slim) (Base image: [maven:3-openjdk-17-slim](https://hub.docker.com/_/maven?tab=tags&name=3-openjdk-17-slim))
+- [3-openjdk-11-slim](https://hub.docker.com/r/loftsh/java-maven/tags?name=3-openjdk-11-slim) (Base image: [maven:3-openjdk-11-slim](https://hub.docker.com/_/maven?tab=tags&name=3-openjdk-11-slim))
+- [3-openjdk-8-slim](https://hub.docker.com/r/loftsh/java-maven/tags?name=3-openjdk-8-slim) (Base image: [maven:3-openjdk-8-slim](https://hub.docker.com/_/maven?tab=tags&name=3-openjdk-8-slim))
 
-## Ruby
+### Additional software/packages installed
+
+- none
+## [JavaScript](https://hub.docker.com/r/loftsh/javascript/tags)
+
+Base repo: [node](https://hub.docker.com/_/node).
 
 ### Tags
 
-- latest (based on 3-alpine)
-- 3-alpine
-- 3.1-alpine
-- 3.0-alpine
-- 2-alpine
-- 2.7-alpine
-- 2.6-alpine
+- [latest](https://hub.docker.com/r/loftsh/javascript/tags?name=latest) (Base image: [node:17-alpine](https://hub.docker.com/_/node?tab=tags&name=17-alpine))
+- [17-alpine](https://hub.docker.com/r/loftsh/javascript/tags?name=17-alpine) (Base image: [node:17-alpine](https://hub.docker.com/_/node?tab=tags&name=17-alpine))
+- [lts-alpine](https://hub.docker.com/r/loftsh/javascript/tags?name=lts-alpine) (Base image: [node:lts-alpine](https://hub.docker.com/_/node?tab=tags&name=lts-alpine))
+- [16-alpine](https://hub.docker.com/r/loftsh/javascript/tags?name=16-alpine) (Base image: [node:16-alpine](https://hub.docker.com/_/node?tab=tags&name=16-alpine))
+
+## [PHP](https://hub.docker.com/r/loftsh/php/tags)
+
+Base repo: [php](https://hub.docker.com/_/php).
+### Tags
+
+- [latest](https://hub.docker.com/r/loftsh/php/tags?name=latest) (Base image: [php:8-apache-bullseye](https://hub.docker.com/_/php?tab=tags&name=8-apache-bullseye))
+- [latest-apache](https://hub.docker.com/r/loftsh/php/tags?name=latest-apache) (Base image: [php:8-apache-bullseye](https://hub.docker.com/_/php?tab=tags&name=8-apache-bullseye))
+- [8-apache-bullseye](https://hub.docker.com/r/loftsh/php/tags?name=8-apache-bullseye) (Base image: [php:8-apache-bullseye](https://hub.docker.com/_/php?tab=tags&name=8-apache-bullseye))
+- [8.1-apache-bullseye](https://hub.docker.com/r/loftsh/php/tags?name=8.1-apache-bullseye) (Base image: [php:8.1-apache-bullseye](https://hub.docker.com/_/php?tab=tags&name=8.1-apache-bullseye))
+- [8.0-apache-bullseye](https://hub.docker.com/r/loftsh/php/tags?name=8.0-apache-bullseye) (Base image: [php:8.0-apache-bullseye](https://hub.docker.com/_/php?tab=tags&name=8.0-apache-bullseye))
+- [7-apache-bullseye](https://hub.docker.com/r/loftsh/php/tags?name=7-apache-bullseye) (Base image: [php:7-apache-bullseye](https://hub.docker.com/_/php?tab=tags&name=7-apache-bullseye))
+- [latest-fpm](https://hub.docker.com/r/loftsh/php/tags?name=latest-fpm) (Base image: [php:8-fpm](https://hub.docker.com/_/php?tab=tags&name=8-fpm))
+- [8-fpm](https://hub.docker.com/r/loftsh/php/tags?name=8-fpm) (Base image: [php:8-fpm](https://hub.docker.com/_/php?tab=tags&name=8-fpm))
+- [7-fpm](https://hub.docker.com/r/loftsh/php/tags?name=7-fpm) (Base image: [php:7-fpm](https://hub.docker.com/_/php?tab=tags&name=7-fpm))
+
+### Additional software/packages installed
+
+- none
+
+## [Python](https://hub.docker.com/r/loftsh/python/tags)
+
+Base repo: [python](https://hub.docker.com/_/python).
+### Tags
+
+- [latest](https://hub.docker.com/r/loftsh/python/tags?name=latest) (Base image: [python:3-alpine](https://hub.docker.com/_/python?tab=tags&name=3-alpine))
+- [3-alpine](https://hub.docker.com/r/loftsh/python/tags?name=3-alpine) (Base image: [python:3-alpine](https://hub.docker.com/_/python?tab=tags&name=3-alpine))
+- [3.10-alpine](https://hub.docker.com/r/loftsh/python/tags?name=3.10-alpine) (Base image: [python:3.10-alpine](https://hub.docker.com/_/python?tab=tags&name=3.10-alpine))
+- [3.9-alpine](https://hub.docker.com/r/loftsh/python/tags?name=3.9-alpine) (Base image: [python:3.9-alpine](https://hub.docker.com/_/python?tab=tags&name=3.9-alpine))
+- [3.8-alpine](https://hub.docker.com/r/loftsh/python/tags?name=3.8-alpine) (Base image: [python:3.8-alpine](https://hub.docker.com/_/python?tab=tags&name=3.8-alpine))
+
+### Additional software/packages installed
+
+- none
+
+## [Ruby](https://hub.docker.com/r/loftsh/ruby/tags)
+
+Base repo: [ruby](https://hub.docker.com/_/ruby).
+### Tags
+
+- [latest](https://hub.docker.com/r/loftsh/ruby/tags?name=latest) (Base image: [ruby:3-alpine](https://hub.docker.com/_/ruby?tab=tags&name=3-alpine))
+- [3-alpine](https://hub.docker.com/r/loftsh/ruby/tags?name=3-alpine) (Base image: [ruby:3-alpine](https://hub.docker.com/_/ruby?tab=tags&name=3-alpine))
+- [3.1-alpine](https://hub.docker.com/r/loftsh/ruby/tags?name=3.1-alpine) (Base image: [ruby:3.1-alpine](https://hub.docker.com/_/ruby?tab=tags&name=3.1-alpine))
+- [3.0-alpine](https://hub.docker.com/r/loftsh/ruby/tags?name=3.0-alpine) (Base image: [ruby:3.0-alpine](https://hub.docker.com/_/ruby?tab=tags&name=3.0-alpine))
+
+### Additional software/packages installed
+
+- none
 
 ## TypeScript
 
 ### Tags
 
-- latest (based on 17-alpine)
-- 17-alpine
-- lts-alpine
-- lts (based on lts-alpine)
-- 14-alpine
-- 12-alpine
+- [latest](https://hub.docker.com/r/loftsh/typescript/tags?name=latest) (Base image: [node:17-alpine](https://hub.docker.com/_/node?tab=tags&name=17-alpine))
+- [17-alpine](https://hub.docker.com/r/loftsh/typescript/tags?name=17-alpine) (Base image: [node:17-alpine](https://hub.docker.com/_/node?tab=tags&name=17-alpine))
+- [lts-alpine](https://hub.docker.com/r/loftsh/typescript/tags?name=lts-alpine) (Base image: [node:lts-alpine](https://hub.docker.com/_/node?tab=tags&name=lts-alpine))
+- [16-alpine](https://hub.docker.com/r/loftsh/typescript/tags?name=16-alpine) (Base image: [node:16-alpine](https://hub.docker.com/_/node?tab=tags&name=16-alpine))
 
 ### Additional software/packages installed
 

@@ -17,7 +17,6 @@ on:
 env:
   IMAGE_PREFIX: ${{ secrets.IMAGE_PREFIX }}
   LANGUAGE: "go"
-  SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
 defaults:
   run:
@@ -30,8 +29,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - tag: 1.18-rc-alpine
-            target_tag: 1.18-rc-alpine
           - tag: 1.17-alpine
             target_tag: latest
           - tag: 1.17-alpine
@@ -45,15 +42,3 @@ jobs:
       - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
       - uses: loft-sh/setup-devspace@main
       - run: devspace build --var TAG=${{ matrix.tag }} --var TARGET_TAG=${{ matrix.target_tag }}
-      - name: Synk Docker scan for TAG=${{ matrix.target_tag }}
-        continue-on-error: true
-        uses: snyk/actions/docker@master
-        with:
-          image: ${{ env.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ matrix.target_tag }}
-          args: --file=go/Dockerfile --severity-threshold=high --exclude-base-image-vulns
-      - name: Upload result to GitHub Code Scanning
-        continue-on-error: true
-        uses: github/codeql-action/upload-sarif@v1
-        with:
-          sarif_file: snyk.sarif
-          category: "${{ env.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ matrix.target_tag }}"

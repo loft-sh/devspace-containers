@@ -17,7 +17,6 @@ on:
 env:
   IMAGE_PREFIX: ${{ secrets.IMAGE_PREFIX }}
   LANGUAGE: "php"
-  SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
 defaults:
   run:
@@ -34,20 +33,16 @@ jobs:
             target_tag: latest
           - tag: 8-apache-bullseye
             target_tag: latest-apache
-          - tag: 8-apache-bullseye
-            target_tag: apache
           - tag: 8.1-apache-bullseye
             target_tag: 8.1-apache-bullseye
           - tag: 8.0-apache-bullseye
             target_tag: 8.0-apache-bullseye
           - tag: 7-apache-bullseye
             target_tag: 7-apache-bullseye
-          - tag: 5-apache
-            target_tag: 5-apache
           - tag: 8-fpm
             target_tag: latest-fpm 
           - tag: 8-fpm
-            target_tag: fpm
+            target_tag: 8-fpm
           - tag: 7-fpm
             target_tag: 7-fpm
     steps:
@@ -57,16 +52,4 @@ jobs:
       - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
       - uses: loft-sh/setup-devspace@main
       - run: devspace build --var TAG=${{ matrix.tag }} --var TARGET_TAG=${{ matrix.target_tag }}
-      - name: Synk Docker scan for TAG=${{ matrix.target_tag }}
-        continue-on-error: true
-        uses: snyk/actions/docker@master
-        with:
-          image: ${{ env.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ matrix.target_tag }}
-          args: --file=go/Dockerfile --severity-threshold=high --exclude-base-image-vulns
-      - name: Upload result to GitHub Code Scanning
-        continue-on-error: true
-        uses: github/codeql-action/upload-sarif@v1
-        with:
-          sarif_file: snyk.sarif
-          category: "${{ env.IMAGE_PREFIX }}/${{ env.LANGUAGE }}:${{ matrix.target_tag }}"
 
