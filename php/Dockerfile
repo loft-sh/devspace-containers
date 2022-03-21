@@ -1,4 +1,4 @@
-ARG  TAG=7.4.4-apache
+ARG  TAG=8-apache
 FROM php:${TAG}
 ARG  TAG
 

@@ -1,8 +1,8 @@
-version: v1beta9
+version: v1beta11
 images:
   app:
-    image: ${IMAGE_PREFIX}/java-maven
-    tags: ["${TARGET_TAG}"]
+    image: ${REGISTRY}/${IMAGE_REPO}
+    tags: ["${TAG}"]
     context: ../
     appendDockerfileInstructions: ["ADD install_tooling.sh .", "RUN chmod +x install_tooling.sh && ./install_tooling.sh && rm install_tooling.sh"]
     build:

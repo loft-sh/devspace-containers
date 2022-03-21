@@ -8,24 +8,36 @@ on:
       - "php/**"
       - ".github/workflows/php.yaml"
       - "install_tooling.sh"
+  workflow_call:
 
 env:
-  IMAGE_PREFIX: loftsh
+  REGISTRY: ghcr.io
+  IMAGE_REPO: loft-sh/devspace-containers/php
+
+defaults:
+  run:
+    working-directory: php
 
 jobs:
   php:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - tag: 8-apache
+          - tag: 7-apache
+          - tag: 8-fpm
+          - tag: 7-fpm
     steps:
       - uses: actions/checkout@v2
       - uses: docker/setup-qemu-action@v1
       - uses: docker/setup-buildx-action@v1
-      - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-      - run: chmod +x install_tooling.sh && sudo ./install_tooling.sh
-      - run: |
-          devspace build --var TAG=8.0-apache --var TARGET_TAG=latest
-          devspace build --var TAG=8.0-apache --var TARGET_TAG=8.0-apache
-          devspace build --var TAG=8.0-fpm --var TARGET_TAG=8.0-fpm
-          devspace build --var TAG=7.4-apache --var TARGET_TAG=7.4-apache
-          devspace build --var TAG=7.4-fpm --var TARGET_TAG=7.4-fpm
-        working-directory: ./php
+      - uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: loft-sh/setup-devspace@main
+      - run: devspace build --var TAG=${{ matrix.tag }}
 

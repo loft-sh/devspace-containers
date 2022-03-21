@@ -1,4 +1,4 @@
-ARG  TAG=3.8-slim-buster
+ARG  TAG=3-alpine
 FROM python:${TAG}
 
 # Create project directory (workdir)
