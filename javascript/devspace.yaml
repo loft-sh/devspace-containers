@@ -1,7 +1,7 @@
 version: v1beta11
 images:
   app:
-    image: ${REGISTRY}/javascript
+    image: ${REGISTRY}/${IMAGE_REPO}
     tags: ["${TAG}"]
     context: ../
     appendDockerfileInstructions: ["ADD install_tooling.sh .", "RUN chmod +x install_tooling.sh && ./install_tooling.sh && rm install_tooling.sh"]
