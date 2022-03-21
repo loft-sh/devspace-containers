@@ -21,7 +21,8 @@ WORKDIR /home/gradle
 
 RUN set -o errexit -o nounset \
     && echo "Installing VCSes" \
-    && apk add --no-cache \
+    && apt-get update \
+    && apt-get -y install \
       git \
       git-lfs \
       mercurial \
