@@ -23,6 +23,8 @@ RUN set -o errexit -o nounset \
     && echo "Installing VCSes" \
     && apt-get update \
     && apt-get -y install \
+      wget \
+      unzip \
       git \
       git-lfs \
       mercurial \
@@ -41,13 +43,13 @@ RUN set -o errexit -o nounset \
     && wget --no-verbose --output-document=gradle.zip "https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip" \
     \
     && echo "Checking download hash" \
-    && echo "${GRADLE_DOWNLOAD_SHA256} *gradle.zip" | sha256sum -c - \
+    && echo "${GRADLE_DOWNLOAD_SHA256} *gradle.zip" | sha256sum --check - \
     \
     && echo "Installing Gradle" \
     && unzip gradle.zip \
     && rm gradle.zip \
     && mv "gradle-${GRADLE_VERSION}" "${GRADLE_HOME}/" \
-    && ln -s "${GRADLE_HOME}/bin/gradle" /usr/bin/gradle \
+    && ln --symbolic "${GRADLE_HOME}/bin/gradle" /usr/bin/gradle \
     \
     && echo "Testing Gradle installation" \
     && gradle --version
