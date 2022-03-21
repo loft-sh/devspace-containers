@@ -11,4 +11,4 @@ images:
         args: ["--platform", "linux/amd64,linux/arm64"]
         options:
           buildArgs:
-            TAG: ${TAG}
+            JDK_VERSION: $(TAG=${TAG#*-jdk} && echo ${TAG%-*})
