@@ -27,11 +27,9 @@ chmod +x devspace
 install -p devspace /usr/local/bin;
 rm devspace
 
-if [ "$ARCH" = "x86_64" ]; then
-    devspace add plugin https://github.com/loft-sh/loft-devspace-plugin
+devspace add plugin https://github.com/loft-sh/loft-devspace-plugin
 
-    curl -s -L "https://github.com/loft-sh/loft/releases/latest" | sed -nE 's!.*"([^"]*loft-linux-'$ARCH_SHORT')".*!https://github.com\1!p' | xargs -n 1 curl -L -o loft
-    chmod +x loft
-    install -p loft /usr/local/bin;
-    rm loft
-fi
+curl -s -L "https://github.com/loft-sh/loft/releases/latest" | sed -nE 's!.*"([^"]*loft-linux-'$ARCH_SHORT')".*!https://github.com\1!p' | xargs -n 1 curl -L -o loft
+chmod +x loft
+install -p loft /usr/local/bin;
+rm loft

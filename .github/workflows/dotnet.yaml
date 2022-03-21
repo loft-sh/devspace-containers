@@ -9,14 +9,10 @@ on:
       - ".github/workflows/dotnet.yaml"
       - "install_tooling.sh"
   workflow_call:
-    secrets:
-      IMAGE_PREFIX:
-        description: "registry.com/loftsh in registry.com/loftsh/language:TAG"
-        required: true
 
 env:
-  IMAGE_PREFIX: ${{ secrets.IMAGE_PREFIX }}
-  LANGUAGE: "dotnet"
+  REGISTRY: ghcr.io
+  IMAGE_REPO: loft-sh/devspace-containers/dotnet
 
 defaults:
   run:
@@ -30,16 +26,15 @@ jobs:
       matrix:
         include:
           - tag: 6.0-alpine
-            target_tag: latest
-          - tag: 6.0-alpine
-            target_tag: 6.0-alpine
-          - tag: 5.0-bullseye-slim
-            target_tag: 5.0-bullseye-slim
-
+          - tag: 5.0-alpine
     steps:
       - uses: actions/checkout@v2
       - uses: docker/setup-qemu-action@v1
       - uses: docker/setup-buildx-action@v1
-      - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      - uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - uses: loft-sh/setup-devspace@main
-      - run: devspace build --var TAG=${{ matrix.tag }} --var TARGET_TAG=${{ matrix.target_tag }}
+      - run: devspace build --var TAG=${{ matrix.tag }}

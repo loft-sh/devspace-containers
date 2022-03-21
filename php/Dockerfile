@@ -1,4 +1,4 @@
-ARG  TAG=8-apache-bullseye
+ARG  TAG=8-apache
 FROM php:${TAG}
 ARG  TAG
 

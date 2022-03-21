@@ -1,22 +1,20 @@
 # Dev-Optimized Container Images For Cloud-Native Development
 
-[![Build Alpine](https://github.com/loft-sh/devtools-containers/actions/workflows/alpine.yaml/badge.svg)](https://github.com/loft-sh/devtools-containers/actions/workflows/alpine.yaml)
-[![Build .NET](https://github.com/loft-sh/devtools-containers/actions/workflows/dotnet.yaml/badge.svg)](https://github.com/loft-sh/devtools-containers/actions/workflows/dotnet.yaml)
-[![Build Go](https://github.com/loft-sh/devtools-containers/actions/workflows/go.yaml/badge.svg)](https://github.com/loft-sh/devtools-containers/actions/workflows/go.yaml)
-[![Build Java (gradle)](https://github.com/loft-sh/devtools-containers/actions/workflows/java-gradle.yaml/badge.svg)](https://github.com/loft-sh/devtools-containers/actions/workflows/java-gradle.yaml)
-[![Build Java (maven)](https://github.com/loft-sh/devtools-containers/actions/workflows/java-maven.yaml/badge.svg)](https://github.com/loft-sh/devtools-containers/actions/workflows/java-maven.yaml)
-[![Build JavaScript](https://github.com/loft-sh/devtools-containers/actions/workflows/javascript.yaml/badge.svg)](https://github.com/loft-sh/devtools-containers/actions/workflows/javascript.yaml)
-[![Build PHP](https://github.com/loft-sh/devtools-containers/actions/workflows/php.yaml/badge.svg)](https://github.com/loft-sh/devtools-containers/actions/workflows/php.yaml)
-[![Build Python](https://github.com/loft-sh/devtools-containers/actions/workflows/python.yaml/badge.svg)](https://github.com/loft-sh/devtools-containers/actions/workflows/python.yaml)
-[![Build Ruby](https://github.com/loft-sh/devtools-containers/actions/workflows/ruby.yaml/badge.svg)](https://github.com/loft-sh/devtools-containers/actions/workflows/ruby.yaml)
-[![Build TypeScript](https://github.com/loft-sh/devtools-containers/actions/workflows/typescript.yaml/badge.svg)](https://github.com/loft-sh/devtools-containers/actions/workflows/typescript.yaml)
+[![Build Alpine](https://github.com/loft-sh/devspace-containers/actions/workflows/alpine.yaml/badge.svg)](https://github.com/loft-sh/devspace-containers/actions/workflows/alpine.yaml)
+[![Build .NET](https://github.com/loft-sh/devspace-containers/actions/workflows/dotnet.yaml/badge.svg)](https://github.com/loft-sh/devspace-containers/actions/workflows/dotnet.yaml)
+[![Build Go](https://github.com/loft-sh/devspace-containers/actions/workflows/go.yaml/badge.svg)](https://github.com/loft-sh/devspace-containers/actions/workflows/go.yaml)
+[![Build Java (gradle)](https://github.com/loft-sh/devspace-containers/actions/workflows/java-gradle.yaml/badge.svg)](https://github.com/loft-sh/devspace-containers/actions/workflows/java-gradle.yaml)
+[![Build Java (maven)](https://github.com/loft-sh/devspace-containers/actions/workflows/java-maven.yaml/badge.svg)](https://github.com/loft-sh/devspace-containers/actions/workflows/java-maven.yaml)
+[![Build JavaScript](https://github.com/loft-sh/devspace-containers/actions/workflows/javascript.yaml/badge.svg)](https://github.com/loft-sh/devspace-containers/actions/workflows/javascript.yaml)
+[![Build PHP](https://github.com/loft-sh/devspace-containers/actions/workflows/php.yaml/badge.svg)](https://github.com/loft-sh/devspace-containers/actions/workflows/php.yaml)
+[![Build Python](https://github.com/loft-sh/devspace-containers/actions/workflows/python.yaml/badge.svg)](https://github.com/loft-sh/devspace-containers/actions/workflows/python.yaml)
+[![Build Ruby](https://github.com/loft-sh/devspace-containers/actions/workflows/ruby.yaml/badge.svg)](https://github.com/loft-sh/devspace-containers/actions/workflows/ruby.yaml)
+[![Build TypeScript](https://github.com/loft-sh/devspace-containers/actions/workflows/typescript.yaml/badge.svg)](https://github.com/loft-sh/devspace-containers/actions/workflows/typescript.yaml)
 
-You can pull images from the [Loft Labs repo](https://hub.docker.com/r/loftsh).
 
-## Additional packages installed
+This is a collection of container images for a variety of languages. They are used as default development images when using DevSpace. You can use them directly for working with DevSpace or you can use these images as base images for creating your own pre-built dev images.
 
-### For all distributions
-
+### Packages Installed For Every Language
 - curl
 - vim
 - wget
@@ -24,23 +22,16 @@ You can pull images from the [Loft Labs repo](https://hub.docker.com/r/loftsh).
 - git
 - openssl
 - nodejs-lts/nodejs (Current LTS is v16.x.y)
-
-### For Alpine distribution
-
 - iputils
 - bind-tools
 
-### For Debian/Ubuntu distribution
-
-- inetutils-ping
-- dnsutils
-
-## Architecture
-
-Following architectures are supported on all images unless specified otherwise. The architecture support depends on the base images.
-
+### Architecture
+All images are built for the following architectures:
 - linux/amd64
 - linux/arm64
+
+
+---
 
 ## [Alpine Images](https://hub.docker.com/r/loftsh/alpine/tags)
 
@@ -53,10 +44,10 @@ Base repo: [Alpine](https://hub.docker.com/_/alpine).
 - [3.14](https://hub.docker.com/r/loftsh/alpine/tags?name=3.13) (Base image: [alpine:3.13](https://hub.docker.com/_/alpine?tab=tags&name=3.13))
 - [3.14](https://hub.docker.com/r/loftsh/alpine/tags?name=3.12) (Base image: [alpine:3.12](https://hub.docker.com/_/alpine?tab=tags&name=3.12))
 
-### Additional software/packages installed
 
-- none
-## [Go](https://hub.docker.com/r/loftsh/go/tags)
+---
+
+## [Golang](https://hub.docker.com/r/loftsh/go/tags)
 
 Base repo: [Golang](https://hub.docker.com/_/golang).
 ### Tags
@@ -69,6 +60,9 @@ Base repo: [Golang](https://hub.docker.com/_/golang).
 
 - [Delve (@latest)](https://github.com/go-delve/delve)
 
+
+---
+
 ## [.NET](https://hub.docker.com/r/loftsh/dotnet/tags)
 
 Base repo: [dotnet](https://hub.docker.com/_/microsoft-dotnet-sdk).
@@ -79,9 +73,7 @@ Base repo: [dotnet](https://hub.docker.com/_/microsoft-dotnet-sdk).
 - [6.0-alpine](https://hub.docker.com/r/loftsh/dotnet/tags?name=6.0-alpine) (Base image: [mcr.microsoft.com/dotnet/sdk:6.0-alpine](https://hub.docker.com/_/microsoft-dotnet-sdk))
 - [5.0-bullseye-slim](https://hub.docker.com/r/loftsh/dotnet/tags?name=5.0-bullseye-slim) (Base image: [mcr.microsoft.com/dotnet/sdk:5.0-bullseye-slim](https://hub.docker.com/_/microsoft-dotnet-sdk))
 
-### Additional software/packages installed
-
-- none
+---
 
 ## [Gradle](https://hub.docker.com/r/loftsh/java-gradle/tags)
 
@@ -95,9 +87,8 @@ Base repo: [gradle](https://hub.docker.com/_/gradle).
 - [6-jdk17](https://hub.docker.com/r/loftsh/java-gradle/tags?name=6-jdk17) (Base image: [gradle:6-jdk17](https://hub.docker.com/_/gradle?tab=tags&name=6-jdk17))
 - [6-jdk11](https://hub.docker.com/r/loftsh/java-gradle/tags?name=6-jdk11) (Base image: [gradle:6-jdk11](https://hub.docker.com/_/gradle?tab=tags&name=6-jdk11))
 
-### Additional software/packages installed
 
-- none
+---
 
 ## [Maven](https://hub.docker.com/r/loftsh/java-maven/tags)
 
@@ -110,9 +101,9 @@ Base repo: [maven](https://hub.docker.com/_/maven).
 - [3-openjdk-11-slim](https://hub.docker.com/r/loftsh/java-maven/tags?name=3-openjdk-11-slim) (Base image: [maven:3-openjdk-11-slim](https://hub.docker.com/_/maven?tab=tags&name=3-openjdk-11-slim))
 - [3-openjdk-8-slim](https://hub.docker.com/r/loftsh/java-maven/tags?name=3-openjdk-8-slim) (Base image: [maven:3-openjdk-8-slim](https://hub.docker.com/_/maven?tab=tags&name=3-openjdk-8-slim))
 
-### Additional software/packages installed
 
-- none
+---
+
 ## [JavaScript](https://hub.docker.com/r/loftsh/javascript/tags)
 
 Base repo: [node](https://hub.docker.com/_/node).
@@ -123,6 +114,9 @@ Base repo: [node](https://hub.docker.com/_/node).
 - [17-alpine](https://hub.docker.com/r/loftsh/javascript/tags?name=17-alpine) (Base image: [node:17-alpine](https://hub.docker.com/_/node?tab=tags&name=17-alpine))
 - [lts-alpine](https://hub.docker.com/r/loftsh/javascript/tags?name=lts-alpine) (Base image: [node:lts-alpine](https://hub.docker.com/_/node?tab=tags&name=lts-alpine))
 - [16-alpine](https://hub.docker.com/r/loftsh/javascript/tags?name=16-alpine) (Base image: [node:16-alpine](https://hub.docker.com/_/node?tab=tags&name=16-alpine))
+
+
+---
 
 ## [PHP](https://hub.docker.com/r/loftsh/php/tags)
 
@@ -139,9 +133,8 @@ Base repo: [php](https://hub.docker.com/_/php).
 - [8-fpm](https://hub.docker.com/r/loftsh/php/tags?name=8-fpm) (Base image: [php:8-fpm](https://hub.docker.com/_/php?tab=tags&name=8-fpm))
 - [7-fpm](https://hub.docker.com/r/loftsh/php/tags?name=7-fpm) (Base image: [php:7-fpm](https://hub.docker.com/_/php?tab=tags&name=7-fpm))
 
-### Additional software/packages installed
 
-- none
+---
 
 ## [Python](https://hub.docker.com/r/loftsh/python/tags)
 
@@ -154,9 +147,8 @@ Base repo: [python](https://hub.docker.com/_/python).
 - [3.9-alpine](https://hub.docker.com/r/loftsh/python/tags?name=3.9-alpine) (Base image: [python:3.9-alpine](https://hub.docker.com/_/python?tab=tags&name=3.9-alpine))
 - [3.8-alpine](https://hub.docker.com/r/loftsh/python/tags?name=3.8-alpine) (Base image: [python:3.8-alpine](https://hub.docker.com/_/python?tab=tags&name=3.8-alpine))
 
-### Additional software/packages installed
 
-- none
+---
 
 ## [Ruby](https://hub.docker.com/r/loftsh/ruby/tags)
 
@@ -168,9 +160,8 @@ Base repo: [ruby](https://hub.docker.com/_/ruby).
 - [3.1-alpine](https://hub.docker.com/r/loftsh/ruby/tags?name=3.1-alpine) (Base image: [ruby:3.1-alpine](https://hub.docker.com/_/ruby?tab=tags&name=3.1-alpine))
 - [3.0-alpine](https://hub.docker.com/r/loftsh/ruby/tags?name=3.0-alpine) (Base image: [ruby:3.0-alpine](https://hub.docker.com/_/ruby?tab=tags&name=3.0-alpine))
 
-### Additional software/packages installed
 
-- none
+---
 
 ## TypeScript
 
@@ -182,6 +173,5 @@ Base repo: [ruby](https://hub.docker.com/_/ruby).
 - [16-alpine](https://hub.docker.com/r/loftsh/typescript/tags?name=16-alpine) (Base image: [node:16-alpine](https://hub.docker.com/_/node?tab=tags&name=16-alpine))
 
 ### Additional software/packages installed
-
 - typescript
 - tsc-watch
