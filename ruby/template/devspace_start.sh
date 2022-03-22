@@ -1,6 +1,22 @@
 #!/bin/bash
 set +e  # Continue on errors
 
+if [ -f "Gemfile" ]; then
+   echo "Installing Ruby Dependencies"
+   bundle install -j4 --retry 3
+fi
+
+export NODE_ENV=development
+if [ -f "yarn.lock" ]; then
+   echo "Installing Yarn Dependencies"
+   yarn
+else 
+   if [ -f "package.json" ]; then
+      echo "Installing NPM Dependencies"
+      npm install
+   fi
+fi
+
 COLOR_BLUE="\033[0;94m"
 COLOR_GREEN="\033[0;92m"
 COLOR_RESET="\033[0m"
@@ -22,7 +38,7 @@ Welcome to your development container!
 This is how you can work with it:
 - Files will be synchronized between your local machine and this container
 - Some ports will be forwarded, so you can access this container via localhost
-- Run \`${COLOR_GREEN}go run main.go${COLOR_RESET}\` to start the application
+- Run \`${COLOR_GREEN}devspace run start${COLOR_RESET}\` to start the application
 "
 
 # Set terminal prompt

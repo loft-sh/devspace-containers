@@ -1,0 +1,5 @@
+version: v2beta1
+
+commands:
+  start: |
+    devspace enter -- bash -c 'bundle exec rails server -p 3000 -b 0.0.0.0'

@@ -1,0 +1,12 @@
+version: v2beta1
+
+commands:
+  start: |
+    devspace enter -- bash -c '
+      # Remove old .jar files
+      rm -f target/*.jar
+
+      # Build jar file
+      gradle build
+
+      java -jar target/*.jar'

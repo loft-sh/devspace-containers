@@ -1,4 +1,5 @@
-ARG  JDK_VERSION="17"
+ARG  TAG=7-jdk17-slim
+ARG  JDK_VERSION=17
 FROM maven:3-openjdk-${JDK_VERSION}-slim
 
 CMD ["gradle"]

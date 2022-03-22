@@ -1,6 +1,9 @@
 #!/bin/bash
 set +e  # Continue on errors
 
+# Generate dev certificates
+dotnet dev-certs https
+
 COLOR_BLUE="\033[0;94m"
 COLOR_GREEN="\033[0;92m"
 COLOR_RESET="\033[0m"
@@ -22,7 +25,7 @@ Welcome to your development container!
 This is how you can work with it:
 - Files will be synchronized between your local machine and this container
 - Some ports will be forwarded, so you can access this container via localhost
-- Run \`${COLOR_GREEN}go run main.go${COLOR_RESET}\` to start the application
+- Run \`${COLOR_GREEN}dotnet run${COLOR_RESET}\` to start the application
 "
 
 # Set terminal prompt
