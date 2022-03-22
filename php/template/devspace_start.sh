@@ -1,10 +1,10 @@
 #!/bin/bash
 set +e  # Continue on errors
 
-export NODE_ENV=development
-
+# Ensure file permissions
 chown -R www-data:www-data .
 
+export COMPOSER_ALLOW_SUPERUSER=1
 if [ -f "composer.json" ]; then
    echo "Installing PHP dependencies"
    composer install \
