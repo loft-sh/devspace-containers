@@ -1,6 +1,9 @@
 #!/bin/bash
 set +e  # Continue on errors
 
+# Start Apache
+/etc/init.d/apache2 restart
+
 # Ensure file permissions
 chown -R www-data:www-data .
 
