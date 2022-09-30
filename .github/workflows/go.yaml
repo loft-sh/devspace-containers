@@ -25,6 +25,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - tag: 1.19.1-alpine
           - tag: 1.18-alpine
           - tag: 1.17-alpine
           - tag: 1.16-alpine
