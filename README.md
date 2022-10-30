@@ -23,7 +23,7 @@ This is a collection of container images for a variety of languages. They're use
 - bash
 - git
 - openssl
-- nodejs-lts/nodejs (Current LTS is v16.x.y)
+- nodejs-lts/nodejs (Current LTS is v18.x.y)
 - iputils
 - bind-tools
 
