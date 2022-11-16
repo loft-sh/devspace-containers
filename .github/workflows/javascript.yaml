@@ -25,6 +25,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - tag: 18-alpine
           - tag: 17-alpine
           - tag: 16-alpine
     steps:
