@@ -65,7 +65,7 @@ Base repository: [dotnet](https://hub.docker.com/_/microsoft-dotnet-sdk)
 
 ### Tags
 
-- [latest](https://hub.docker.com/r/loftsh/dotnet/tags?name=latest) (Base image: [mcr.microsoft.com/dotnet/sdk:6.0-alpine](https://hub.docker.com/_/microsoft-dotnet-sdk))
+- [7.0-alpine](https://hub.docker.com/r/loftsh/dotnet/tags?name=latest) (Base image: [mcr.microsoft.com/dotnet/sdk:7.0-alpine](https://hub.docker.com/_/microsoft-dotnet-sdk))
 - [6.0-alpine](https://hub.docker.com/r/loftsh/dotnet/tags?name=6.0-alpine) (Base image: [mcr.microsoft.com/dotnet/sdk:6.0-alpine](https://hub.docker.com/_/microsoft-dotnet-sdk))
 - [5.0-bullseye-slim](https://hub.docker.com/r/loftsh/dotnet/tags?name=5.0-bullseye-slim) (Base image: [mcr.microsoft.com/dotnet/sdk:5.0-bullseye-slim](https://hub.docker.com/_/microsoft-dotnet-sdk))
 
