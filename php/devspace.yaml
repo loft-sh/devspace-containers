@@ -1,4 +1,4 @@
-version: v1beta11
+version: v2beta1
 images:
   app:
     image: ${REGISTRY}/${IMAGE_REPO}
