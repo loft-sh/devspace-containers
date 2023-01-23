@@ -26,7 +26,11 @@ jobs:
       matrix:
         include:
           - tag: 3-alpine
-          - tag: 2-alpine
+          - tag: 3.7-alpine
+          - tag: 3.8-alpine
+          - tag: 3.9-alpine
+          - tag: 3.10-alpine
+          - tag: 3.11-alpine
     steps:
       - uses: actions/checkout@v2
       - uses: docker/setup-qemu-action@v1

@@ -5,10 +5,8 @@ images:
     tags: ["${TAG}"]
     context: ../
     appendDockerfileInstructions: ["ADD install_tooling.sh .", "RUN chmod +x install_tooling.sh && ./install_tooling.sh && rm install_tooling.sh"]
-    build:
-      buildKit:
-        skipPush: false
-        args: ["--platform", "linux/amd64,linux/arm64"]
-        options:
-          buildArgs:
-            TAG: ${TAG}
+    skipPush: false
+    buildKit:
+      args: ["--platform", "linux/amd64,linux/arm64"]
+    buildArgs:
+      TAG: ${TAG}
