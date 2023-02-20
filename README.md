@@ -50,7 +50,8 @@ Base repository: [alpine](https://hub.docker.com/_/alpine)
 Base repository: [golang](https://hub.docker.com/_/golang)
 
 ### Tags
-
+- [1.20-alpine](https://hub.docker.com/r/loftsh/go/tags?name=1.20-alpine) (Base image: [golang:1.20-alpine](https://hub.docker.com/_/golang?tab=tags&name=1.20-alpine))
+- [1.19-alpine](https://hub.docker.com/r/loftsh/go/tags?name=1.19-alpine) (Base image: [golang:1.19-alpine](https://hub.docker.com/_/golang?tab=tags&name=1.19-alpine))
 - [1.18-alpine](https://hub.docker.com/r/loftsh/go/tags?name=1.18-alpine) (Base image: [golang:1.18-alpine](https://hub.docker.com/_/golang?tab=tags&name=1.18-alpine))
 - [1.17-alpine](https://hub.docker.com/r/loftsh/go/tags?name=1.17-alpine) (Base image: [golang:1.17-alpine](https://hub.docker.com/_/golang?tab=tags&name=1.17-alpine))
 - [1.16-alpine](https://hub.docker.com/r/loftsh/go/tags?name=1.16-alpine) (Base image: [golang:1.16-alpine](https://hub.docker.com/_/golang?tab=tags&name=1.16-alpine))
