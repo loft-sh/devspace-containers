@@ -12,6 +12,7 @@
 [![Build Python](https://github.com/loft-sh/devspace-containers/actions/workflows/python.yaml/badge.svg)](https://github.com/loft-sh/devspace-containers/actions/workflows/python.yaml)
 [![Build Ruby](https://github.com/loft-sh/devspace-containers/actions/workflows/ruby.yaml/badge.svg)](https://github.com/loft-sh/devspace-containers/actions/workflows/ruby.yaml)
 [![Build TypeScript](https://github.com/loft-sh/devspace-containers/actions/workflows/typescript.yaml/badge.svg)](https://github.com/loft-sh/devspace-containers/actions/workflows/typescript.yaml)
+[![Build Rust](https://github.com/loft-sh/devspace-containers/actions/workflows/typescript.yaml/badge.svg)](https://github.com/loft-sh/devspace-containers/actions/workflows/rust.yaml)
 
 This is a collection of container images for a variety of languages. They're used as default development images when using DevSpace. You can use them directly for working with DevSpace, or you can use these images as base images for creating your own pre-built dev images.
 
@@ -155,3 +156,11 @@ Base repository: [ruby](https://hub.docker.com/_/ruby)
 
 - typescript
 - tsc-watch
+
+## [Rust](https://hub.docker.com/r/loftsh/rust/tags)
+
+### Tags
+
+- [latest](https://hub.docker.com/r/loftsh/rust/tags?name=latest) (Base image: [rust:1.67-alpine](https://hub.docker.com/_/rust?tab=tags&name=1.67-alpine))
+- [1.67-alpine](https://hub.docker.com/r/loftsh/rust/tags?name=1.67-alpine) (Base image: [rust:1.67-alpine](https://hub.docker.com/_/rust?tab=tags&name=1.67-alpine))
+- [1.67-bullseye](https://hub.docker.com/r/loftsh/rust/tags?name=1.67-bullseye) (Base image: [rust:1.67-bullseye](https://hub.docker.com/_/rust?tab=tags&name=1.67-bullseye))
