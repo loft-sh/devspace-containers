@@ -1,0 +1,12 @@
+version: v2beta1
+images:
+  app:
+    image: ${REGISTRY}/${IMAGE_REPO}
+    tags: ["${TAG}"]
+    context: ../
+    appendDockerfileInstructions: ["ADD install_tooling.sh .", "RUN chmod +x install_tooling.sh && ./install_tooling.sh && rm install_tooling.sh"]
+    skipPush: false
+    buildKit:
+      args: ["--platform", "linux/amd64,linux/arm64"]
+    buildArgs:
+      TAG: ${TAG}
