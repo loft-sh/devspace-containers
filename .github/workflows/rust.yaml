@@ -24,9 +24,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - tag: 1.67-alpine
-          - tag: 1.67-bullseye
+        tag:
+          - 1.71-alpine
+          - 1.71-bullseye
+          - 1.67-alpine
+          - 1.67-bullseye
     steps:
       - uses: actions/checkout@v2
       - uses: docker/setup-qemu-action@v1
