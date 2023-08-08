@@ -148,7 +148,7 @@ Base repository: [ruby](https://hub.docker.com/_/ruby)
 
 ### Tags
 
-- [1.71-alpine](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Frust) (Base image: [rust:1.71-alpine](https://hub.docker.com/_/rust?tab=tags&name=1.71-alpine))
-- [1.71-bullseye](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Frust) (Base image: [rust:1.71-bullseye](https://hub.docker.com/_/rust?tab=tags&name=1.71-bullseye))
+- [1.71-alpine](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Frust/116707881?tag=1.71-alpine) (Base image: [rust:1.71-alpine](https://hub.docker.com/_/rust?tab=tags&name=1.71-alpine))
+- [1.71-bullseye](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Frust/116708805?tag=1.71-bullseye) (Base image: [rust:1.71-bullseye](https://hub.docker.com/_/rust?tab=tags&name=1.71-bullseye))
 - [1.67-alpine](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Frust/72166109?tag=1.67-alpine) (Base image: [rust:1.67-alpine](https://hub.docker.com/_/rust?tab=tags&name=1.67-alpine))
 - [1.67-bullseye](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Frust/72167102?tag=1.67-bullseye) (Base image: [rust:1.67-bullseye](https://hub.docker.com/_/rust?tab=tags&name=1.67-bullseye))
