@@ -25,6 +25,8 @@ jobs:
       fail-fast: false
       matrix:
         tag:
+          - 1.72-alpine
+          - 1.72-bullseye
           - 1.71-alpine
           - 1.71-bullseye
           - 1.67-alpine
