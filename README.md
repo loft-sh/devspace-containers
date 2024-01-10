@@ -49,6 +49,7 @@ Base repository: [golang](https://hub.docker.com/_/golang)
 
 ### Tags
 
+- [1.21](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Fgo/120571994?tag=1.21) (Base image: [golang:1.21](https://hub.docker.com/_/golang/tags?name=1.21))
 - [1.21-alpine](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Fgo/120571994?tag=1.21-alpine) (Base image: [golang:1.21-alpine](https://hub.docker.com/_/golang?tab=tags&name=1.21-alpine))
 - [1.20-alpine](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Fgo/71932325?tag=1.20-alpine) (Base image: [golang:1.20-alpine](https://hub.docker.com/_/golang?tab=tags&name=1.20-alpine))
 - [1.19-alpine](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Fgo/71931865?tag=1.19-alpine) (Base image: [golang:1.19-alpine](https://hub.docker.com/_/golang?tab=tags&name=1.19-alpine))
