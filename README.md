@@ -49,6 +49,7 @@ Base repository: [golang](https://hub.docker.com/_/golang)
 
 ### Tags
 
+- [1.22-alpine](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Fgo/206002054?tag=1.22-alpine) (Base image: [golang:1.22-alpine]((https://hub.docker.com/_/golang?tab=tags&name=1.22-alpine)))
 - [1.21-alpine](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Fgo/120571994?tag=1.21-alpine) (Base image: [golang:1.21-alpine](https://hub.docker.com/_/golang?tab=tags&name=1.21-alpine))
 - [1.20-alpine](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Fgo/71932325?tag=1.20-alpine) (Base image: [golang:1.20-alpine](https://hub.docker.com/_/golang?tab=tags&name=1.20-alpine))
 - [1.19-alpine](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Fgo/71931865?tag=1.19-alpine) (Base image: [golang:1.19-alpine](https://hub.docker.com/_/golang?tab=tags&name=1.19-alpine))
@@ -95,6 +96,7 @@ Base repository: [node](https://hub.docker.com/_/node)
 
 ### Tags
 
+- [20-alpine](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Fjavascript/205906414?tag=20-alpine) (Base image: [node:20-alpine](https://hub.docker.com/_/node?tab=tags&name=20-alpine))
 - [18-alpine](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Fjavascript/75605840?tag=18-alpine) (Base image: [node:18-alpine](https://hub.docker.com/_/node?tab=tags&name=18-alpine))
 - [17-alpine](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Fjavascript/75605692?tag=17-alpine) (Base image: [node:17-alpine](https://hub.docker.com/_/node?tab=tags&name=17-alpine))
 - [16-alpine](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Fjavascript/75605693?tag=16-alpine) (Base image: [node:16-alpine](https://hub.docker.com/_/node?tab=tags&name=16-alpine))
