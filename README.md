@@ -49,13 +49,15 @@ Base repository: [golang](https://hub.docker.com/_/golang)
 
 ### Tags
 
-- [1.22-alpine](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Fgo/206002054?tag=1.22-alpine) (Base image: [golang:1.22-alpine]((https://hub.docker.com/_/golang?tab=tags&name=1.22-alpine)))
-- [1.21-alpine](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Fgo/120571994?tag=1.21-alpine) (Base image: [golang:1.21-alpine](https://hub.docker.com/_/golang?tab=tags&name=1.21-alpine))
-- [1.20-alpine](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Fgo/71932325?tag=1.20-alpine) (Base image: [golang:1.20-alpine](https://hub.docker.com/_/golang?tab=tags&name=1.20-alpine))
-- [1.19-alpine](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Fgo/71931865?tag=1.19-alpine) (Base image: [golang:1.19-alpine](https://hub.docker.com/_/golang?tab=tags&name=1.19-alpine))
-- [1.18-alpine](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Fgo/71931884?tag=1.18-alpine) (Base image: [golang:1.18-alpine](https://hub.docker.com/_/golang?tab=tags&name=1.18-alpine))
-- [1.17-alpine](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Fgo/71931806?tag=1.17-alpine) (Base image: [golang:1.17-alpine](https://hub.docker.com/_/golang?tab=tags&name=1.17-alpine))
-- [1.16-alpine](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Fgo/71931803?tag=1.16-alpine) (Base image: [golang:1.16-alpine](https://hub.docker.com/_/golang?tab=tags&name=1.16-alpine))
+- 1.24-alpine (Base image: [golang:1.24-alpine](https://hub.docker.com/_/golang/tags?name=1.24-alpine))
+- [1.23-alpine](https://github.com/orgs/loft-sh/packages/container/devspace-containers%2Fgo/276461297?tag=1.23-alpine) (Base image: [golang:1.23-alpine](https://hub.docker.com/_/golang/tags?name=1.23-alpine))
+- [1.22-alpine](https://github.com/orgs/loft-sh/packages/container/devspace-containers%2Fgo/276461197?tag=1.22-alpine) (Base image: [golang:1.22-alpine](https://hub.docker.com/_/golang/tags?name=1.22-alpine))
+- [1.21-alpine](https://github.com/orgs/loft-sh/packages/container/devspace-containers%2Fgo/276461118?tag=1.21-alpine) (Base image: [golang:1.21-alpine](https://hub.docker.com/_/golang/tags?name=1.21-alpine))
+- [1.20-alpine](https://github.com/orgs/loft-sh/packages/container/devspace-containers%2Fgo/276461066?tag=1.20-alpine) (Base image: [golang:1.20-alpine](https://hub.docker.com/_/golang/tags?name=1.20-alpine))
+- [1.19-alpine](https://github.com/orgs/loft-sh/packages/container/devspace-containers%2Fgo/208304467?tag=1.19-alpine) (Base image: [golang:1.19-alpine](https://hub.docker.com/_/golang/tags?name=1.19-alpine))
+- [1.18-alpine](https://github.com/orgs/loft-sh/packages/container/devspace-containers%2Fgo/208304551?tag=1.18-alpine) (Base image: [golang:1.18-alpine](https://hub.docker.com/_/golang/tags?name=1.18-alpine))
+- [1.17-alpine](https://github.com/orgs/loft-sh/packages/container/devspace-containers%2Fgo/120570678?tag=1.17-alpine) (Base image: [golang:1.17-alpine](https://hub.docker.com/_/golang/tags?name=1.17-alpine))
+- [1.16-alpine](https://github.com/orgs/loft-sh/packages/container/devspace-containers%2Fgo/120570238?tag=1.16-alpine) (Base image: [golang:1.16-alpine](https://hub.docker.com/_/golang/tags?name=1.16-alpine))
 
 ### Additional software/packages installed
 
