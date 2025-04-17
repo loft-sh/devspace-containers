@@ -1,4 +1,4 @@
-ARG  TAG=7-jdk17-slim
+ARG  TAG=8-jdk17-slim
 ARG  JDK_VERSION=17
 FROM maven:3-openjdk-${JDK_VERSION}-slim
 
@@ -37,8 +37,8 @@ RUN set -o errexit -o nounset \
     && which hg \
     && which svn
 
-ENV GRADLE_VERSION 7.4.1
-ARG GRADLE_DOWNLOAD_SHA256=e5444a57cda4a95f90b0c9446a9e1b47d3d7f69057765bfb54bd4f482542d548
+ENV GRADLE_VERSION 8.8
+ARG GRADLE_DOWNLOAD_SHA256=a4b4158601f8636cdeeab09bd76afb640030bb5b144aafe261a5e8af027dc612
 RUN set -o errexit -o nounset \
     && echo "Downloading Gradle" \
     && wget --no-verbose --output-document=gradle.zip "https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip" \
