@@ -76,7 +76,6 @@ Base repository: [gradle](https://hub.docker.com/_/gradle)
 
 ### Tags
 
-- [8-jdk17-slim](https://github.com/d-lopes/devspace-containers/pkgs/container/devspace-containers%2Fjava-gradle/65243610?tag=8-jdk17-slim) (Base image: [gradle:8-jdk17-slim](https://hub.docker.com/_/gradle?tab=tags&name=8-jdk17-slim))
 - [7-jdk17-slim](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Fjava-gradle/65243610?tag=7-jdk17-slim) (Base image: [gradle:7-jdk17-slim](https://hub.docker.com/_/gradle?tab=tags&name=7-jdk17-slim))
 - [7-jdk11-slim](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Fjava-gradle/65248914?tag=7-jdk11-slim) (Base image: [gradle:7-jdk11-slim](https://hub.docker.com/_/gradle?tab=tags&name=7-jdk11-slim))
 - [7-jdk8-slim](https://github.com/loft-sh/devspace-containers/pkgs/container/devspace-containers%2Fjava-gradle/65243515?tag=7-jdk8-slim) (Base image: [gradle:7-jdk8-slim](https://hub.docker.com/_/gradle?tab=tags&name=7-jdk8-slim))
