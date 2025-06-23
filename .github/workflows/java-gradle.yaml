@@ -25,12 +25,15 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - tag: 7-jdk17-slim
-          - tag: 7-jdk11-slim
-          - tag: 7-jdk8-slim
-          # - tag: 6-jdk17-slim
-          # - tag: 6-jdk11-slim
-          # - tag: 6-jdk8-slim
+         - tag: 8-jdk17-slim
+         - tag: 8-jdk11-slim
+         - tag: 8-jdk8-slim
+         # - tag: 7-jdk17-slim
+         # - tag: 7-jdk11-slim
+         # - tag: 7-jdk8-slim
+         # - tag: 6-jdk17-slim
+         # - tag: 6-jdk11-slim
+         # - tag: 6-jdk8-slim
     steps:
       - uses: actions/checkout@v4
       - uses: docker/setup-qemu-action@v3
